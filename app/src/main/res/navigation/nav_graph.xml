@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/searchClanFragment">
+
+    <fragment
+        android:id="@+id/detailsClanFragment"
+        android:name="com.vagner.clashroyale.clan.ui.details.DetailsClanFragment"
+        android:label="DetailsClanFragment">
+        <argument
+            android:name="clantag"
+            app:argType="com.vagner.clashroyale.clan.model.Item" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailsPlayerFragment"
+        android:name="com.vagner.clashroyale.player.ui.details.DetailsPlayerFragment"
+        android:label="DetailsPlayerFragment" />
+    <fragment
+        android:id="@+id/searchClanFragment"
+        android:name="com.vagner.clashroyale.clan.ui.search.SearchClanFragment"
+        android:label="SearchClanFragment"
+        tools:layout="@layout/fragment_search_clan">
+        <action
+            android:id="@+id/action_searchClanFragment_to_detailsClanFragment"
+            app:destination="@id/detailsClanFragment" />
+        <action
+            android:id="@+id/action_searchClanFragment_to_searchPlayerFragment"
+            app:destination="@id/searchPlayerFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/searchPlayerFragment"
+        android:name="com.vagner.clashroyale.player.ui.search.SearchPlayerFragment"
+        android:label="SearchPlayerFragment">
+        <action
+            android:id="@+id/action_searchPlayerFragment_to_detailsPlayerFragment"
+            app:destination="@id/detailsPlayerFragment" />
+        <argument
+            android:name="playertag"
+            app:argType="com.vagner.clashroyale.player.model.PlayerModelResponse" />
+    </fragment>
+</navigation>

@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">ClashRoyale</string>
+    <string name="image_clan">image_clan</string>
+    <string name="image_players">image_players</string>
+    <string name="image_trophies">image_trophies</string>
+    <string name="name_clan">name clan</string>
+    <string name="text_total_players">/50</string>
+    <string name="text_amount_players">50</string>
+    <string name="text_total_trophies">5000</string>
+    <string name="button_player">Player</string>
+    <string name="button_clan">Clan</string>
+</resources>
