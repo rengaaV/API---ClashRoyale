@@ -10,7 +10,7 @@ import com.vagner.clashroyale.databinding.FragmentDetailsClanBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class DetailsClanFragment : BaseFragment<FragmentDetailsClanBinding , DetailsClanViewModel>() {
+class DetailsClanFragment : BaseFragment<FragmentDetailsClanBinding, DetailsClanViewModel>() {
     override val viewModel: DetailsClanViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {

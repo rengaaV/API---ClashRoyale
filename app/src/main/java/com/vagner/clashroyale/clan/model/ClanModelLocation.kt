@@ -1,6 +1,6 @@
 package com.vagner.clashroyale.clan.model
 
-data class Location(
+data class ClanModelLocation(
     val countryCode: String,
     val id: Int,
     val isCountry: Boolean,

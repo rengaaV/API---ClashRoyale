@@ -3,6 +3,7 @@ package com.vagner.clashroyale
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.NavigationUI.setupWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.vagner.clashroyale.databinding.ActivityMainBinding
 import com.vagner.clashroyale.databinding.ActivitySplashBinding

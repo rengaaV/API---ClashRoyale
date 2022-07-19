@@ -19,17 +19,19 @@
 
     <TextView
         android:id="@+id/text_name_clan"
-        android:layout_width="150dp"
+        android:layout_width="110dp"
         android:layout_height="60dp"
         android:gravity="center"
+        android:textColor="@color/black"
         android:text="@string/name_clan"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/image_clan"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
     <ImageView
         android:id="@+id/image_players"
-        android:layout_width="90dp"
+        android:layout_width="100dp"
         android:layout_height="60dp"
         android:contentDescription="@string/image_players"
         app:layout_constraintStart_toEndOf="@+id/text_name_clan"
@@ -45,6 +47,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="60dp"
+        android:textColor="@color/black"
         android:gravity="center"
         android:text="@string/text_total_players"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -58,6 +61,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="20dp"
+        android:textColor="@color/black"
         android:gravity="center"
         android:text="@string/text_amount_players"
         app:layout_constraintEnd_toStartOf="@+id/text_total_players"
@@ -66,7 +70,7 @@
 
     <ImageView
         android:id="@+id/image_trophies"
-        android:layout_width="90dp"
+        android:layout_width="100dp"
         android:layout_height="60dp"
         android:contentDescription="@string/image_trophies"
         app:layout_constraintStart_toEndOf="@+id/image_players"
@@ -80,8 +84,9 @@
         android:id="@+id/text_total_trophies"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="12dp"
+        android:layout_marginEnd="24dp"
         android:text="@string/text_total_trophies"
+        android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="@id/image_trophies"
         app:layout_constraintEnd_toEndOf="@id/image_trophies"
         app:layout_constraintTop_toTopOf="parent"

@@ -3,17 +3,20 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/VAGNER/AndroidStudioProjects/ClashRoyale/app/src/main/res/drawable/ic_cards.xml" value="0.1" />
         <entry key="..\:/Users/VAGNER/AndroidStudioProjects/ClashRoyale/app/src/main/res/drawable/ic_clan_menu.xml" value="0.2425" />
         <entry key="..\:/Users/VAGNER/AndroidStudioProjects/ClashRoyale/app/src/main/res/drawable/ic_player_menu.xml" value="0.2425" />
         <entry key="..\:/Users/VAGNER/AndroidStudioProjects/ClashRoyale/app/src/main/res/layout/activity_main.xml" value="0.3333333333333333" />
         <entry key="..\:/Users/VAGNER/AndroidStudioProjects/ClashRoyale/app/src/main/res/layout/activity_splash.xml" value="0.3333333333333333" />
+        <entry key="..\:/Users/VAGNER/AndroidStudioProjects/ClashRoyale/app/src/main/res/layout/fragment_cards.xml" value="0.3333333333333333" />
         <entry key="..\:/Users/VAGNER/AndroidStudioProjects/ClashRoyale/app/src/main/res/layout/fragment_details_cla.xml" value="0.33229166666666665" />
         <entry key="..\:/Users/VAGNER/AndroidStudioProjects/ClashRoyale/app/src/main/res/layout/fragment_details_clan.xml" value="0.199252801992528" />
         <entry key="..\:/Users/VAGNER/AndroidStudioProjects/ClashRoyale/app/src/main/res/layout/fragment_details_player.xml" value="0.3333333333333333" />
         <entry key="..\:/Users/VAGNER/AndroidStudioProjects/ClashRoyale/app/src/main/res/layout/fragment_search_cla.xml" value="0.33229166666666665" />
         <entry key="..\:/Users/VAGNER/AndroidStudioProjects/ClashRoyale/app/src/main/res/layout/fragment_search_clan.xml" value="0.3333333333333333" />
         <entry key="..\:/Users/VAGNER/AndroidStudioProjects/ClashRoyale/app/src/main/res/layout/fragment_search_player.xml" value="0.3333333333333333" />
-        <entry key="..\:/Users/VAGNER/AndroidStudioProjects/ClashRoyale/app/src/main/res/layout/item_clan.xml" value="0.25" />
+        <entry key="..\:/Users/VAGNER/AndroidStudioProjects/ClashRoyale/app/src/main/res/layout/item_card.xml" value="0.3333333333333333" />
+        <entry key="..\:/Users/VAGNER/AndroidStudioProjects/ClashRoyale/app/src/main/res/layout/item_clan.xml" value="0.67" />
         <entry key="..\:/Users/VAGNER/AndroidStudioProjects/ClashRoyale/app/src/main/res/menu/menu_nav.xml" value="0.3333333333333333" />
       </map>
     </option>

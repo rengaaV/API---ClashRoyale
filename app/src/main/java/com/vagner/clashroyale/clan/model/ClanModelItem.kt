@@ -2,14 +2,14 @@ package com.vagner.clashroyale.clan.model
 
 import java.io.Serializable
 
-data class Item(
+data class ClanModelItem(
     val badgeId: Int,
     val clanChestLevel: Int,
     val clanChestMaxLevel: Int,
     val clanScore: Int,
     val clanWarTrophies: Int,
     val donationsPerWeek: Int,
-    val location: Location,
+    val location: ClanModelLocation,
     val members: Int,
     val name: String,
     val requiredTrophies: Int,

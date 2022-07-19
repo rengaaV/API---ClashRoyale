@@ -2,13 +2,16 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/searchClanFragment"
-        android:icon="@drawable/ic_clan_menu"
-        android:title="@string/button_clan"/>
-
+        android:id="@+id/cardsFragment"
+        android:icon="@drawable/ic_cards"
+        android:title="@string/cards" />
     <item
         android:id="@+id/searchPlayerFragment"
         android:icon="@drawable/ic_player_menu"
-        android:title="@string/button_player"/>
+        android:title="@string/button_player" />
+    <item
+        android:id="@+id/searchClanFragment"
+        android:icon="@drawable/ic_clan_menu"
+        android:title="@string/button_clan" />
 
 </menu>
