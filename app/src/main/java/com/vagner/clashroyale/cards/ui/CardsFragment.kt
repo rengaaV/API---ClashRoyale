@@ -6,10 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.viewModels
-import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.material.snackbar.Snackbar
 import com.vagner.clashroyale.cards.adapter.CardsAdapter
 import com.vagner.clashroyale.common.BaseFragment
-import com.vagner.clashroyale.common.Constants
+import com.vagner.clashroyale.common.ResultServiceApi
 import com.vagner.clashroyale.databinding.FragmentCardsBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -17,38 +17,39 @@ import dagger.hilt.android.AndroidEntryPoint
 class CardsFragment : BaseFragment<FragmentCardsBinding, CardsViewModel>() {
     override val viewModel: CardsViewModel by viewModels()
 
-    private val cardsAdapter = CardsAdapter{}
+    private val cardsAdapter = CardsAdapter {}
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         setupRecyclerView()
-        cardListObserver()
+        getAllCards()
     }
 
-    private fun cardListObserver() {
-        successCardList()
-        errorErrorList()
+    private fun getAllCards() {
+        viewModel.getAllCards().observe(viewLifecycleOwner) { result ->
+            when (result) {
+                is ResultServiceApi.Success -> {
+                    result.dado?.let {
+                        cardsAdapter.cardList = it.items
+                    }
+                }
+                is ResultServiceApi.Error -> {
+                    Snackbar.make(binding.rvCard,
+                        result.exception.message.toString(),
+                        Snackbar.LENGTH_SHORT
+                    ).show()
+                }
+            }
+        }
     }
 
-    private fun successCardList() {
-       viewModel.successRepository.observe(viewLifecycleOwner){
-           cardsAdapter.cardList = it
-       }
-    }
-
-    private fun errorErrorList() {
-       viewModel.errorRepository.observe(viewLifecycleOwner){
-           Toast.makeText(context, Constants.ERROR, Toast.LENGTH_LONG).show()
-       }
-    }
 
     private fun setupRecyclerView() {
-       binding.rvCard.apply {
-           adapter = cardsAdapter
-           layoutManager = LinearLayoutManager(requireContext())
-           setHasFixedSize(true)
-       }
+        binding.rvCard.apply {
+            adapter = cardsAdapter
+            setHasFixedSize(true)
+        }
     }
 
     override fun getViewBinding(

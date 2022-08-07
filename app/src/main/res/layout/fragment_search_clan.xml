@@ -9,13 +9,13 @@
     android:padding="3dp">
 
     <SearchView
-        android:id="@+id/search_view_clan"
+        android:id="@+id/svClan"
         android:layout_width="0dp"
         android:layout_height="?android:attr/actionBarSize"
         android:layout_margin="5dp"
+        android:background="@color/background_search_clan"
         android:iconifiedByDefault="false"
         android:queryHint="Search Clans ..."
-        android:background="@color/background_search_clan"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -23,15 +23,15 @@
 
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_search_clan"
+        android:id="@+id/rvClan"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="2dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/search_view_clan"
+        app:layout_constraintTop_toBottomOf="@+id/svClan"
         tools:listitem="@layout/item_clan" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

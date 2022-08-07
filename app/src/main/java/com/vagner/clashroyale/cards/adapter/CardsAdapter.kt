@@ -13,7 +13,7 @@ class CardsAdapter(private val onClickListener: (Item) -> Unit) :
     var cardList = listOf<Item>()
         set(value) {
             field = value
-            notifyDataSetChanged()
+           notifyDataSetChanged()
         }
 
 

@@ -1,22 +1,21 @@
 package com.vagner.clashroyale.clan.ui.search
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.SearchView
-import android.widget.Toast
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.lifecycleScope
-import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.lifecycle.viewModelScope
+import androidx.navigation.fragment.findNavController
 import com.google.android.material.snackbar.Snackbar
 import com.vagner.clashroyale.clan.adapter.ClanAdapter
 import com.vagner.clashroyale.common.BaseFragment
-import com.vagner.clashroyale.common.Constants
+import com.vagner.clashroyale.common.Constants.NAME
+import com.vagner.clashroyale.common.ResultServiceApi
 import com.vagner.clashroyale.databinding.FragmentSearchClanBinding
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.DEBUG_PROPERTY_NAME
 
 @AndroidEntryPoint
 class SearchClanFragment :
@@ -26,46 +25,53 @@ class SearchClanFragment :
 
     private lateinit var searchView: SearchView
 
-    private val clanAdapter = ClanAdapter { }
+    private val clanAdapter = ClanAdapter {
+        val action =
+            SearchClanFragmentDirections.actionSearchClanFragmentToDetailsClanFragment(it)
+        findNavController().navigate(action)
+    }
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         setupRecyclerView()
-        clanListObserver()
         searchView()
+        getClan(NAME)
+    }
+
+    private fun getClan(name : String) {
+        viewModel.getClans(name).observe(viewLifecycleOwner) { resultado ->
+            when (resultado) {
+                is ResultServiceApi.Success -> {
+                    resultado.dado?.let {
+                        clanAdapter.clanList = it.items
+                    }
+                }
+                is ResultServiceApi.Error -> {
+                    Snackbar.make(
+                        binding.rvClan,
+                        resultado.exception.message.toString(),
+                        Snackbar.LENGTH_SHORT
+                    ).show()
+                }
+            }
+        }
     }
 
     private fun setupRecyclerView() {
-        binding.recyclerSearchClan.apply {
+        binding.rvClan.apply {
             adapter = clanAdapter
-            layoutManager = LinearLayoutManager(requireContext())
             setHasFixedSize(true)
         }
     }
 
-    private fun clanListObserver() {
-        successClanList()
-        errorClanList()
-    }
-
-    private fun errorClanList() {
-        viewModel.errorRepository.observe(viewLifecycleOwner) {
-            Toast.makeText(context, Constants.ERROR, Toast.LENGTH_LONG).show()
-        }
-    }
-
-    private fun successClanList() {
-        viewModel.successRepository.observe(viewLifecycleOwner) {
-            clanAdapter.clanList = it
-        }
-    }
 
     private fun searchView() {
-        searchView = binding.searchViewClan
+        searchView = binding.svClan
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(name: String): Boolean {
-                viewModel.getAllClans(name)
+                 getClan(name)
                 return true
             }
 

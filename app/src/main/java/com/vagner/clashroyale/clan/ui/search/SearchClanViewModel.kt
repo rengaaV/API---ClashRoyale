@@ -1,18 +1,14 @@
 package com.vagner.clashroyale.clan.ui.search
 
-import android.util.Log
-import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
-import com.vagner.clashroyale.clan.model.ClanModelItem
+import androidx.lifecycle.liveData
 import com.vagner.clashroyale.clan.model.ClanModelResponse
 import com.vagner.clashroyale.common.ClashRoyaleRepository
-import com.vagner.clashroyale.common.Constants.ERROR
-import com.vagner.clashroyale.common.Constants.NAME
+import com.vagner.clashroyale.common.Constants
+import com.vagner.clashroyale.common.ResultServiceApi
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.launch
-import retrofit2.Call
-import retrofit2.Response
+import java.net.ConnectException
 import javax.inject.Inject
 
 
@@ -20,28 +16,20 @@ import javax.inject.Inject
 class SearchClanViewModel @Inject constructor(private val repository: ClashRoyaleRepository) :
     ViewModel() {
 
-    val successRepository = MutableLiveData<List<ClanModelItem>>()
-    val errorRepository = MutableLiveData<Any>()
 
-    init {
-        getAllClans()
-    }
-
-    fun getAllClans(name: String = NAME){
-        repository.getAllClans(name).enqueue(object : retrofit2.Callback<ClanModelResponse> {
-            override fun onResponse(
-                call: Call<ClanModelResponse>,
-                response: Response<ClanModelResponse>
-            ) {
-                response.body()?.let {
-                    successRepository.postValue(it.items)
-                }
+    fun getClans(name: String): LiveData<ResultServiceApi<ClanModelResponse?>> = liveData {
+        try {
+            val response = repository.getClans(name)
+            if (response.isSuccessful) {
+                emit(ResultServiceApi.Success(dado = response.body()))
+            } else {
+                emit(ResultServiceApi.Error(exception = Exception(Constants.ERROR)))
             }
+        } catch (e: ConnectException) {
+            emit(ResultServiceApi.Error(exception = Exception("Falha na comunicação com API")))
 
-            override fun onFailure(call: Call<ClanModelResponse>, t: Throwable) {
-                Log.d(ERROR, t.message.toString())
-                errorRepository.postValue(t)
-            }
-        })
+        } catch (e: Exception) {
+            emit(ResultServiceApi.Error(exception = e))
+        }
     }
 }

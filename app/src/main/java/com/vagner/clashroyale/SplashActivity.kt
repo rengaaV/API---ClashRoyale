@@ -1,9 +1,8 @@
 package com.vagner.clashroyale
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.LayoutInflater
+import androidx.appcompat.app.AppCompatActivity
 import com.vagner.clashroyale.databinding.ActivitySplashBinding
 
 class SplashActivity : AppCompatActivity() {
@@ -12,7 +11,6 @@ class SplashActivity : AppCompatActivity() {
         binding = ActivitySplashBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
-
         setupSplash()
     }
 

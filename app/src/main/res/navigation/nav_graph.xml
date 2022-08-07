@@ -8,7 +8,11 @@
     <fragment
         android:id="@+id/detailsClanFragment"
         android:name="com.vagner.clashroyale.clan.ui.details.DetailsClanFragment"
-        android:label="DetailsClanFragment"/>
+        android:label="DetailsClanFragment">
+        <argument
+            android:name="itemClan"
+            app:argType="com.vagner.clashroyale.clan.model.ClanModelItem" />
+    </fragment>
     <fragment
         android:id="@+id/searchClanFragment"
         android:name="com.vagner.clashroyale.clan.ui.search.SearchClanFragment"

@@ -2,12 +2,7 @@ package com.vagner.clashroyale.common
 
 object Constants {
     const val BASE_URL = "https://api.clashroyale.com/v1/"
-    const val API_KEY = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiIsImtpZCI6Ij" +
-            "I4YTMxOGY3LTAwMDAtYTFlYi03ZmExLTJjNzQzM2M2Y2NhNSJ9.eyJpc3MiOiJzdXBlcmNlbGwiLCJhdWQiOiJzdX" +
-            "BlcmNlbGw6Z2FtZWFwaSIsImp0aSI6ImUwMGQ5MzcyLTEzNmEtNDU1Ny1hYmFhLTgxNjMxYjkzYzE0ZCIsImlhdCI6MTY1ODA2OTg1Miwic" +
-            "3ViIjoiZGV2ZWxvcGVyLzBjNTI2ZDQzLWJmOWQtNGM0My1iMWEyLTU0MTg0MTNmZTY5NSIsInNjb3BlcyI6WyJyb3lhbGUiXSwibGltaXRzIjpbeyJ0aWVyIjoiZG" +
-            "V2ZWxvcGVyL3NpbHZlciIsInR5cGUiOiJ0aHJvdHRsaW5nIn0seyJjaWRycyI6WyIxODYuMjI4LjEzNC4xMDUiXSwidHlwZSI6ImNsaWVudCJ9XX0" +
-            ".rtAgcKEx3aLmC4bpCai4ZVcdEVgJEneKDJl2g2cxXzYUjxo_CPgGzqDz-MllUKOB_os4rDwvYNCuv0e4C0tDeA"
+    const val API_KEY = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiIsImtpZCI6IjI4YTMxOGY3LTAwMDAtYTFlYi03ZmExLTJjNzQzM2M2Y2NhNSJ9.eyJpc3MiOiJzdXBlcmNlbGwiLCJhdWQiOiJzdXBlcmNlbGw6Z2FtZWFwaSIsImp0aSI6ImViYjNhM2E3LWFkZmMtNGQyOC1hMDZmLWZhZmM3ODkwZDA2NSIsImlhdCI6MTY1OTUzNTU2Nywic3ViIjoiZGV2ZWxvcGVyLzBjNTI2ZDQzLWJmOWQtNGM0My1iMWEyLTU0MTg0MTNmZTY5NSIsInNjb3BlcyI6WyJyb3lhbGUiXSwibGltaXRzIjpbeyJ0aWVyIjoiZGV2ZWxvcGVyL3NpbHZlciIsInR5cGUiOiJ0aHJvdHRsaW5nIn0seyJjaWRycyI6WyIxNzkuMzUuNjkuMTE1Il0sInR5cGUiOiJjbGllbnQifV19.OLYiEeK1a3pPv-qK8FkzzF_5kKQoYdZKIAK_MkdUqPYHw1Sy11WZLyKIdK-PQfxhK8UTkcR7d99OXQeDYLTdgA"
 
     const val ERROR = "Could not connect"
 

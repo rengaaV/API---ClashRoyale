@@ -9,8 +9,8 @@ import retrofit2.http.Query
 
 interface ServiceApi {
     @GET("clans")
-    fun getAllClans(@Query("name") name: String): Call<ClanModelResponse>
+   suspend fun getClans(@Query("name") name: String): Response<ClanModelResponse>
 
     @GET("cards")
-    fun getAllCards(): Call<CardsModelResponse>
+    suspend fun getAllCards(): Response<CardsModelResponse>
 }

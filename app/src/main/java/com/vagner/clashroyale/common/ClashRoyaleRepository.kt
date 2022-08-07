@@ -1,12 +1,17 @@
 package com.vagner.clashroyale.common
 
+
+import androidx.lifecycle.liveData
+import com.vagner.clashroyale.common.Constants.ERROR
+import java.net.ConnectException
 import javax.inject.Inject
 
 class ClashRoyaleRepository @Inject constructor(
-    private val api: ServiceApi,
+    private val service: ServiceApi,
 ) {
 
-    fun getAllClans(name: String) = api.getAllClans(name)
-    fun getAllCards() = api.getAllCards()
+   suspend fun getClans(name: String) = service.getClans(name)
+
+   suspend fun getAllCards() = service.getAllCards()
 
 }
